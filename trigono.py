@@ -1,8 +1,6 @@
-import os 
-def isInt(var):
-    if var==int(var):
-        return True
-    return False
+import os
+from ClassTriagle import TriagleCass
+
 
 intro ="""
 --------------------------------------------------
@@ -15,67 +13,39 @@ triangle is scalene, isosceles, or equilateral.
 
 --------------------------------------------------"""
 
-def getInt():
-        x = input("Give me the value of the triples side :  ")
-        x = x.strip()
-        if x.isdigit(): return int(x)
-        return -1
-
-def triagle(x,y,z):
-    sides = [x,y,z]
-    sides.sort()
-    if (    sides[1]-sides[2] < sides[0] < sides[1]+sides[0]
-            and sides[0]-sides[0] < sides[1] < sides[0]+sides[0]
-            and sides[0]-sides[1] < sides[0] < sides[0]+sides[1]):
-        return True
-    return False
-        
-####################################################################
-#                         Main programm                            #
-####################################################################
 
 os.system('cls')
+
 print(intro)
 inpout = 1
-anser = '' 
+
+
 while inpout != 0 :
-    
-    a = getInt()
-    b = getInt()
-    c = getInt()
 
-    if a<0 or b <0 or c< 0 or a == 0 or b == 0 or c == 0:
+    newTriagle = TriagleCass()
+    newTriagle.set_x()
+    newTriagle.set_y()
+    newTriagle.set_z()
+
+    if newTriagle.isTriagle():
+        newTriagle.typeOfTriagle()
         print("-"*50+
-              "\n             Error!! \n"+
-                " All sides mast greater than Zero!! \n"+
-                " All inputs mast be integers!! \n")
-        anser = "False valiue"
-     
-    elif triagle(a,b,c):
-        print("-"*50+
-              "\n         Sides are sape a Triagle     \n")
+              "\n         Sides are sape a Triagle     \n") 
+        print(  "         The triagle is {}".format(newTriagle.text))
+  
+    elif newTriagle.isZero():
+        print( "-"*50+
+              "\n                Error!! \n"+
+                "    All sides mast greater than Zero!! \n"+ 
+                "      All inputs mast be integers!! \n"+
+                "       Sides are't sape a Triagle     ")
+    else :
+        print("-"*50+"\n"+
+                "        Sides are't sape a Triagle     ")
         
-        if a == b == c:
-            anser = "equilateral"
-            print("         The tragle is {}".format(anser))
-        elif a == b or a == c or b ==c :
-            anser = "isosceles"
-            print("         The tragle is {}".format(anser))
-        elif a !=  b and a != c and b != c:
-            anser = "scalene"
-            print("         The tragle is {}".format(anser))
-    else:
-        print("-"*50+
-              "\n         Sides are't sape a Triagle     \n")
-        anser = "Not triagle"
-            
 
-
-
-
-
-
-    ##############         exit  while  menu          ############# 
+  
+    ##_____________________exit  while  menu         
     while True:
          query = input("\n"+("-"*50)+
                        " \nOK, now press Yes to continue or No to exit the programme: ")
@@ -93,7 +63,8 @@ while inpout != 0 :
     if Fl == 'n':
         inpout = 0
 
-    os.system('cls')
+    clear = lambda: os.system('cls')
+    clear()
     print(intro)
 
 
