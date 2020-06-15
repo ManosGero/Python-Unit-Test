@@ -1,8 +1,20 @@
-class TriagleCass:
+class TriagleClass:
+    
+    
+    
     def __init__(self, x = 0, y = 0, z= 0):
-        self.x = x
-        self.y = y 
-        self.z = z
+        if type(x)== int:
+            self.x = x
+        else:
+            self.x = 0
+        if type(y)== int:
+            self.y = y
+        else:
+            self.y = 0        
+        if type(z)== int:
+            self.z = z
+        else:
+            self.z = 0
         self.text = ''
         
     
@@ -28,6 +40,8 @@ class TriagleCass:
     def isTriagle(self ):
         sides = [self.x, self.y, self.z]
         sides.sort()
+        if self.isZero():
+            return False
         if (    sides[1]-sides[2] < sides[0] < sides[1]+sides[0]
                 and sides[0]-sides[0] < sides[1] < sides[0]+sides[0]
                 and sides[0]-sides[1] < sides[0] < sides[0]+sides[1]):
@@ -35,22 +49,22 @@ class TriagleCass:
         return False
 
     def isZero(self):
-        if (self.x and self.y and self.z == 0) or self.x <= 0 or self.y <= 0 or self.z <= 0:
+        if (self.x== 0 and self.y== 0 and self.z == 0) or self.x <= 0 or self.y <= 0 or self.z <= 0:
             return True
         return False    
         
 
     def isEquilaterar(self):
-        if self.x == self.y == self.z :
+        if self.x == self.y == self.z  :
             self.text = "equilateral"
            
         
     def isIsosceles(self):
-        if self.x == self.y or self.x == self.z or self.y ==self.z  :
+        if (self.x == self.y or self.x == self.z or self.y ==self.z)  :
             self.text =  "isosceles"
 
     def isScsalene(self):
-        if self.x !=  self.y and self.x != self.z and self.y != self.z :
+        if (self.x !=  self.y and self.x != self.z and self.y != self.z):
             self.text =  "scalene"    
         
     def typeOfTriagle(self):
@@ -58,3 +72,6 @@ class TriagleCass:
         self.isIsosceles()
         self.isScsalene()
         
+        
+
+    
