@@ -1,5 +1,5 @@
 import os
-from ClassTriagle import TriagleCass
+from ClassTriagle import TriagleClass
 
 
 intro ="""
@@ -22,7 +22,7 @@ inpout = 1
 
 while inpout != 0 :
 
-    newTriagle = TriagleCass()
+    newTriagle = TriagleClass()
     newTriagle.set_x()
     newTriagle.set_y()
     newTriagle.set_z()
