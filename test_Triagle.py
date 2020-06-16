@@ -107,26 +107,41 @@ class TestTriagle(unittest.TestCase):
             self.assertEqual(c.text,"isosceles")
             
             
-    # def test_isEquilaterar(self):      
-        # for test_count in range(5000):
-            # x = random.randint(1,100001)
-            # r = range(1, x) + range(x+1, 100001)
-            # y = random.choice(r)
-            # if x > y: z = range(1, y) + range(y+1, x) + range(x+1, 100001)
-            # else: z = range(1, x) + range(x+1, y) + range(x+1, 100001)
-            # y = random.choice(z)
-            # c = TriagleClass(x , y , z)  
-            # self.assertEqual(c.text,"equilateral")
-            # c = TriagleClass(x , z, y)  
-            # self.assertEqual(c.text,"equilateral")
-            # c = TriagleClass(z , x , y)  
-            # self.assertEqual(c.text,"equilateral")
-            # c = TriagleClass(z , y , x)  
-            # self.assertEqual(c.text,"equilateral")
-            # c = TriagleClass(y , z , x)  
-            # self.assertEqual(c.text,"equilateral")
-            # c = TriagleClass(y , x , z)  
-            # self.assertEqual(c.text,"equilateral")            
+    def test_isScsalene(self):      
+        for test_count in range(5000):
+            x = random.randint(1,100001)
+            y = random.randint(1,100001)
+            if x==y: y+=1
+            z = random.randint(1,100001)
+            if x==z: z+=1
+            if y==z: z+=1
+            
+            c = TriagleClass(x , y , z)  
+            c.isScsalene()
+            self.assertEqual(c.text,"scalene")
+            
+            c = TriagleClass(x , z, y)  
+            c.isScsalene()
+            self.assertEqual(c.text,"scalene")
+            
+            c = TriagleClass(z , x , y)  
+            c.isScsalene()
+            self.assertEqual(c.text,"scalene")
+            
+            c = TriagleClass(z , y , x)  
+            c.isScsalene()
+            self.assertEqual(c.text,"scalene")
+            
+            c = TriagleClass(y , z , x)  
+            c.isScsalene()
+            self.assertEqual(c.text,"scalene")
+            
+            c = TriagleClass(y , x , z)  
+            c.isScsalene()
+            self.assertEqual(c.text,"scalene")           
+
+    #def test_typeOfTriagle(self):
+            
             
 def randomString(stringLength=8):
     letters = string.ascii_lowercase
