@@ -1,7 +1,6 @@
 class TriagleClass:
     
-    
-    
+     
     def __init__(self, x = 0, y = 0, z= 0):
         if type(x)== int:
             self.x = x
@@ -16,7 +15,10 @@ class TriagleClass:
         else:
             self.z = 0
         self.text = ''
-        
+        if self.isTriagle():
+            self.isEquilaterar()
+            self.isIsosceles()
+            self.isScsalene()
     
 
     def set_x(self):
