@@ -91,18 +91,20 @@ class TestTriagle(unittest.TestCase):
             c.isEquilaterar()
             self.assertEqual(c.text,"equilateral")
             
-    # def test_isIsosceles(self):      
-        # for test_count in range(5000):
-            # x = random.randint(1,100001)
-            # r = range(1,x)+range(x+1,100001)
-            # y = random.choice(r)
-            
-            # c = TriagleClass(x , x , y)  
-            # self.assertEqual(c.text,"isosceles")
-            # c = TriagleClass(x , y , x)  
-            # self.assertEqual(c.text,"isosceles")
-            # c = TriagleClass(y , x , x)  
-            # self.assertEqual(c.text,"isosceles")
+    def test_isIsosceles(self):      
+        for test_count in range(5000):
+            x = random.randint(1,100001)
+            y = random.randint(1,100001)
+            if x==y: y+=1
+            c = TriagleClass(x , y , y) 
+            c.isIsosceles()
+            self.assertEqual(c.text,"isosceles")
+            c = TriagleClass(y , x , y)  
+            c.isIsosceles()
+            self.assertEqual(c.text,"isosceles")
+            c = TriagleClass(y , y , x)  
+            c.isIsosceles()
+            self.assertEqual(c.text,"isosceles")
             
             
     # def test_isEquilaterar(self):      
